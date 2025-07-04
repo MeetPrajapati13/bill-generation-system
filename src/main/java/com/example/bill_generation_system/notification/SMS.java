@@ -21,7 +21,7 @@ public class SMS {
                 "🧾 Thank you for your purchase! We appreciate your business.";
 
         Message message = Message.creator(
-                new PhoneNumber(""),
+                new PhoneNumber("+919825949566"),
                 new PhoneNumber(twilioConfig.getPhoneNumber()),
                 messageBody
         ).create();
@@ -35,7 +35,7 @@ public class SMS {
                 "⚠️ We couldn't process your payment. ";
 
         Message message = Message.creator(
-                new PhoneNumber(""),
+                new PhoneNumber("+919825949566"),
                 new PhoneNumber(twilioConfig.getPhoneNumber()),
                 messageBody
         ).create();

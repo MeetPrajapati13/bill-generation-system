@@ -19,7 +19,7 @@ public class WhatsApp {
                 "🧾 Thank you for your purchase! We appreciate your business.";
 
         Message message = Message.creator(
-                new PhoneNumber(""),
+                new PhoneNumber("whatsapp:+919825949566"),
                 new PhoneNumber(twilioConfig.getWhatsAppNumber()),
                 messageBody
         ).create();
@@ -34,7 +34,7 @@ public class WhatsApp {
                 "⚠️ We couldn't process your payment. ";
 
         Message message = Message.creator(
-                new PhoneNumber(""),
+                new PhoneNumber("whatsapp:+919825949566"),
                 new PhoneNumber(twilioConfig.getWhatsAppNumber()),
                 messageBody
         ).create();
