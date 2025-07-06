@@ -28,4 +28,5 @@ public class ProductController {
     public List<ProductResponseDTO> addMultipleProduct(@RequestBody List<Product> products){
         return productService.saveAllProduct(products);
     }
+
 }

@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
-@EnableConfigurationProperties
 public class BillGenerationSystemApplication implements CommandLineRunner {
 	@Autowired
 	StockReportService service;
@@ -21,4 +20,5 @@ public class BillGenerationSystemApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		service.generateStockReport();
 	}
+
 }

@@ -31,6 +31,9 @@ public class BillService {
     @Autowired
     WhatsApp whatsApp;
 
+    @Autowired
+    StockReportService stockReportService;
+
     public OrderResponseDTO generateBill(Customer customer,Product product, double quantity){
         OrderResponseDTO orderResponseDTO = new OrderResponseDTO();
 
@@ -47,6 +50,10 @@ public class BillService {
 
             return orderResponseDTO;
         }
+        
+        product.setProductStock(product.getProductStock() - quantity);
+
+        if(product.getProductStock() <= product.getThresholdQuantity()) stockReportService.generateStockReport();
 
         Order order = saveOrderDetail(customer, product ,quantity);
 
@@ -76,8 +83,6 @@ public class BillService {
         order.setQuantity(quantity);
 
         orderRepository.save(order);
-
-        product.setProductStock(product.getProductStock() - quantity);
 
         return order;
     }

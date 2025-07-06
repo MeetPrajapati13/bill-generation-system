@@ -22,6 +22,8 @@ public class StockReportService {
     @Autowired
     ProductRepository productRepository;
 
+    @Autowired
+    AdminMessageService adminMessageService;
 
     public void generateStockReport(){
         Date date = new Date(System.currentTimeMillis());
@@ -46,5 +48,6 @@ public class StockReportService {
         }catch (IOException e){
             e.getMessage();
         }
+        adminMessageService.sendStockReport();
     }
 }

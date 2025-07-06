@@ -31,17 +31,10 @@ public class OrderService {
         OrderResponseDTO orderResponseDTO = new OrderResponseDTO();
 
         Optional<Product> productOptional =  productRepository.findById(orderRequest.getProductId());
-
-        if(productOptional.isEmpty()){
-            orderResponseDTO.setMessage("Product Not Found");
-            orderResponseDTO.setHttpStatus(HttpStatus.NOT_FOUND);
-            return orderResponseDTO;
-        }
-
         Optional<Customer> customerOptional = customerRepository.findById(orderRequest.getCustomerId());
 
-        if(customerOptional.isEmpty()){
-            orderResponseDTO.setMessage("Customer Not Found");
+        if(productOptional.isEmpty() || customerOptional.isEmpty()){
+            orderResponseDTO.setMessage("Product Or Customer Found");
             orderResponseDTO.setHttpStatus(HttpStatus.NOT_FOUND);
             return orderResponseDTO;
         }
